@@ -1,0 +1,26 @@
+
+<ul class="list-group">
+
+
+  <li class="list-group-item">Your <b>Basal Metabolic Rate</b> is {{basalMetabolicRate}} calories, this is the amount of calories
+      your body would need to essentially just sit in bed all day and do nothing.
+  </li>
+  <li class="list-group-item">Your <b>Daily Maintenence Calories</b> are {{maintenenceCals}} calories, this is the amount of calories you use daily according to your activity level.
+  </li>
+  <li class="list-group-item">Your <b>Goal Calories</b> are {{goalCalories}} calories per day, this is what you should be aiming to eat daily to meet your goals. (if your goal is to maintain it will be the same as your maintenance calories)</li>
+
+
+<hr>
+
+  <li class="list-group-item"> You are {{weight1}} pounds</li>
+  <li class="list-group-item">You are {{height1}} inches tall</li>
+  <li class="list-group-item">You are {{age1}} years old  </li>
+  <li class="list-group-item">Your gender is {{gender1}} </li>
+  <li class="list-group-item">Your activity level is {{activityLevel1}} </li>
+  <li class="list-group-item">You work out {{daysExcercised}} days a week </li>
+  <li class="list-group-item">You burn  {{caloriesBurned}} calories on average per day in the gym </li>
+  <li class="list-group-item">Your goal is to  {{fitnessGoal}} <p *ngIf="[weightChange]>0">at {{weightChange}} pounds a week</p></li><!-- here you have property binding to the weightChange element of the display.ts !! -->
+
+  <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Return to home</a>
+
+  </ul>

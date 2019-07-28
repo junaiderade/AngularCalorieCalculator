@@ -1,0 +1,90 @@
+
+<!-- u use a template driven form in this, learned from https://www.youtube.com/watch?v=hAaoPOx_oIw-->
+
+<form #form="ngForm">
+  <!-- the #form represents the form in the onSubmit method -->
+<div class="theBasics"><!-- you use this class to put inputs on the same row -->
+
+  <div class="form-group col-sm">
+    <!-- form group is required by bootstrap. represents a group of controls in a form -->
+    <label for="weight">Weight (lb)</label>
+    <!-- the for makes the data easilsy accessible -->
+    <input type="number" class="form-control" id="weight" name="weight" ngModel required #weightCtrl="ngModel">
+    <!-- form control lets u check current value, see if it's touched or untouched, etc -->
+    <!-- ngModel makes it so angular creates a control object and associates it with this input field-->
+    <!-- the #weightCtrl is what lets gives u access to the .invalid and .touched. u use it below with alert divs and the submit button -->
+    <!-- required is part of the form validity of #weightCtrl -->
+  </div>
+
+  <div class="form-group col-sm">
+    <label for="height">Height (in)</label>
+    <input type="number" class="form-control" id="height" name="height" ngModel required #heightCtrl="ngModel">
+  </div>
+
+  <div class="form-group col-sm">
+      <label for="age">Age (yrs)</label>
+      <input type="number" class="form-control" id="age" name="age" ngModel required #ageCtrl="ngModel">
+    </div>
+
+    <div class="form-group col-sm">
+        <label for="gender">Gender (M/F)</label>
+        <select class="form-control" name="gender" id="gender" ngModel required #genderCtrl="ngModel"><!-- this creates a dropdown -->
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+
+</div>
+
+
+  <div class="form-group">
+      <label for="activityLevel">Activity Level (Be honest here if you want the right numbers)</label>
+      <select class="form-control" name="activityLevel" id="activityLevel" ngModel required #activityCtrl="ngModel"><!-- this creates a dropdown -->
+        <option>Sedentary: Spend most of the day sitting (e.g., bank taller, desk job)</option>
+        <option>Lightly Active: Spend a good part of the day on your feet (e.g., teacher)</option>
+        <option>Active: Spend a good part of the day doing some physical activity (e.g., waitress, mailman)</option>
+        <option>Very Active: Spend most of the day doing heavy physical activity (e.g. bike messenger, carpenter)</option>
+      </select>
+  </div>
+
+  <div class="form-group">
+      <label for="excercise">How many days a week do you excercise? (this can be weightlifting or 30+ minutes of cardio)</label>
+      <input type="number" class="form-control" id="excercise" name="excercise" ngModel required #daysExCtrl="ngModel">
+  </div>
+
+  <div class="form-group" class="hide" [ngClass]="{'show': daysExCtrl.valid && daysExCtrl.value > 0 && daysExCtrl.value < 8 }" ><!-- not required -->
+        <label for="calsBurned">How many calories do you estimate you burn on average per day in the gym? (if you don't know, you can estimate 10 calories per minute of excercise)</label>
+        <input type="number" class="form-control" id="calsBurned" name="calsBurned" ngModel>
+  </div>
+
+  <div class="form-group">
+        <label for="goal">What is your goal?</label>
+        <select class="form-control" name="goal" id="goal" ngModel required #goalCtrl="ngModel" ><!-- this creates a dropdown -->
+          <option>lose weight</option>
+          <option>gain weight</option>
+          <option>maintain current weight</option>
+        </select>
+  </div>
+
+
+  <div class="form-group" class="hide" [ngClass]="{'show': goalCtrl.value === 'lose weight' || goalCtrl.value === 'gain weight'}"> <!-- not required -->
+    <!-- here you use the ngClass directive to hide or show this element, hidden by default -->
+    <label for="weightChange">How many pounds would you like to lose or gain a week? (No more than 2 to promote healthy transformations, .5 is reccomended)</label>
+    <input type="number" class="form-control" id="weightChange" name="weightChange" ngModel value='0' #weightChangeCtrl="ngModel">
+  </div>
+
+<hr>
+
+<div *ngIf="daysExCtrl.value>7" class="alert">You cannot exercise more than 7 days a week</div>
+<div *ngIf="weightChangeCtrl.value > 2" class="alert">Losing or gaining more than 2 pounds a week is NOT healthy</div>
+
+
+<hr>
+
+  <button (click)="onSubmit(form)" type="submit" routerLink="display" class="btn btn-primary"
+  [disabled]="weightCtrl.invalid || heightCtrl.invalid || ageCtrl.invalid || genderCtrl.invalid || activityCtrl.invalid || daysExCtrl.invalid ||
+   daysExCtrl.value > 7 || goalCtrl.invalid">
+  Submit</button>
+   <!-- the routerLink takes u to the display component -->
+
+</form>

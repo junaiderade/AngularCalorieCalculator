@@ -1,0 +1,26 @@
+form{
+  padding: 50px;
+}
+
+.theBasics{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.alert {
+border: 1px solid red;
+}
+
+/* if a form value is touched or invalid this triggers */
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.hide {
+  display: none;
+}
+
+div.show {
+  display: initial;
+}

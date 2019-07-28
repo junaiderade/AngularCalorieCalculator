@@ -1,0 +1,26 @@
+.nav{
+  /* padding-top: 25px; */
+  font-size: 1.2em;
+  background-color: steelblue;
+  display: flex;
+  border-top: 7px solid white;
+}
+
+a {
+  color: white;
+  font-family: "Verdana Header", Times, serif;
+}
+
+.headText {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+a:hover {
+  background-color: white;
+  color: steelblue;
+}
+
+
+
