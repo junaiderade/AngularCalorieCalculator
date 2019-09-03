@@ -31,6 +31,7 @@ dService: DataService;
   ngOnInit() {
     this.age1 = this.dService.getAge();
     this.weight1 = this.dService.getWeight();
+    this.dService.calcHeight(); // calculates the height before it gets it
     this.height1 = this.dService.getHeight();
     this.gender1 = this.dService.getGender();
     this.activityLevel1 = this.dService.getActivityLevel();

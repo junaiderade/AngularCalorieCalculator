@@ -8,6 +8,7 @@ form{
   text-align: center;
 }
 
+/* for alerts at bottom of screen */
 .alert {
 border: 1px solid red;
 }
@@ -24,3 +25,11 @@ input.ng-invalid.ng-touched {
 div.show {
   display: initial;
 }
+
+.headText {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  /* font-family: "Lucida Console", Monaco, monospace; */
+}
+

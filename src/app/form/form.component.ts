@@ -18,6 +18,8 @@ dService: DataService; // this just makes a variable of type data service
   }
 
 onSubmit(submittedForm) { // when the form is submitted this method takes all the info from the form and puts it in the service
+  this.dService.setInches(submittedForm.value.in);
+  this.dService.setFeet(submittedForm.value.ft);
   this.dService.setAge(submittedForm.value.age);
   this.dService.setWeight(submittedForm.value.weight);
   this.dService.setGender(submittedForm.value.gender);

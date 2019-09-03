@@ -7,7 +7,9 @@ export class DataService {
 
 private age = 0;
 private weight = 0;
-private height = 0;
+private feet = 0;
+private inches = 0;
+private height = 0; // total inches
 private bmr = 0; // not settable
 private gender = '';
 private activityLevel = '';
@@ -39,6 +41,18 @@ return this.weight;
 }
 
 // for height
+setInches(inches) {
+  this.inches = inches;
+}
+
+setFeet(feet) {
+  this.feet = feet;
+}
+
+calcHeight() {
+this.height = (this.feet * 12) + this.inches;
+}
+
 setHeight(inches) {
   this.height = inches;
 }
@@ -147,7 +161,7 @@ calcGoalCals() {
     case 'gain weight':
     this.goalCals = this.maintCals + (3500 * this.weightChange) / 7;
     break;
-    case 'maintain weight':
+    case 'maintain current weight':
     this.goalCals = this.maintCals;
     break;
   }

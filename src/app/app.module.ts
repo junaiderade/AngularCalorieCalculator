@@ -10,6 +10,9 @@ import { FormComponent } from './form/form.component';
 import { DisplayComponent } from './display/display.component';
 
 import { DataService } from './data.service';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { DataService } from './data.service';
     HeaderComponent,
     FormComponent,
     DisplayComponent,
+    HowItWorksComponent,
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
