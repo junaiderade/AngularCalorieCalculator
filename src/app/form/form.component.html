@@ -74,9 +74,11 @@
 </div>
 
 <div class="form-group" class="hide" [ngClass]="{'show': daysExCtrl.valid && daysExCtrl.value > 0 && daysExCtrl.value < 8 }" ><!-- not required -->
-        <label for="calsBurned">How many calories do you estimate you burn on average <strong>per day</strong> in the gym? (if you don't know, you can <b>estimate 10 calories per minute of excercise</b>)</label>
+        <label for="calsBurned">How many <strong>minutes</strong> long are each of your workouts?</label>
         <input type="number" class="form-control" id="calsBurned" name="calsBurned" ngModel #calsBurnedCtrl="ngModel">
 </div>
+<!-- SPECIAL NOTE HERE: CHECK THE TS FILE TO SEE HOW ITS CALCULATED BECAUSE YOU ADJUSTED THIS -->
+
 
 <div class="form-group">
         <label for="goal">What is your goal?</label>

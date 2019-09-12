@@ -27,7 +27,7 @@ onSubmit(submittedForm) { // when the form is submitted this method takes all th
   this.dService.setActivityLevel(submittedForm.value.activityLevel);
   this.dService.setDaysEx(submittedForm.value.excercise);
   this.dService.setGoals(submittedForm.value.goal);
-  this.dService.setCalsBurned(submittedForm.value.calsBurned);
+  this.dService.setCalsBurned(submittedForm.value.calsBurned * 10);
   this.dService.setWeightChange(submittedForm.value.weightChange);
 }
 
